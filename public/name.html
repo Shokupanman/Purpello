@@ -7,7 +7,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
+    <script>
+      function submitform() {
+        let username = $('#username').val()
+        window.location.href = 'lobby.html?username=' + username
+      }
+    </script>
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -19,7 +24,44 @@
     <title>Purpello</title>
   </head>
   <body>
-    <h1>Heres where you put your name!</h1>
+      <div
+      style="display: flex; align-items: center; justify-content: center; flex-direction: column; height: 80vh; margin-top: 5rem;"
+      >
+      <h1>Make a user name!</h1>
+      
+      <form onsubmit="submitform(); return false">
+        <section
+          style="display: flex; justify-content: center; align-items: center;"
+        >
+          <div class="input-group mb-3" style="width: 55vw;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-default"
+                >User...</span
+              >
+            </div>
+            <input
+            id = 'username'
+              type="text"
+              class="form-control"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+        </section>
+        <div
+          style="display: flex; justify-content: center; align-items: center; margin-top: 3rem; margin-bottom: 3rem; width: 95vw; height: 4rem;"
+        >
+          <button
+          type="submit"
+            class="btn btn-primary btn-lg active"
+            style="color: whitesmoke; background-color: #a296be; "
+            role="button"
+            aria-pressed="true"
+            >Confirm</button
+            >
+        </form>
+        </div>
+      </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
