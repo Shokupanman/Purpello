@@ -20,12 +20,20 @@
   </head>
   <body>
     <h1>The lobby</h1>
+    <div class="row align-items-end" id="players">
+      <div class="col-9 text-left">
+        <h3>Players</h3>
+      </div>
+      <div class="col-3"></div>
+    </div>
+    <h3>Messages</h3>
+    <div id="messages"></div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script
@@ -38,5 +46,11 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"
+      integrity="sha256-fiM0lX3OYzf0FfLBeLqFuCokh+rf1VhI/eanPbzldUM="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
