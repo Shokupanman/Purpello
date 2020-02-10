@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Purpello</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700"
+      rel="stylesheet"
+    />
+    <!-- inject:js -->
+    <script src="js/game.js"></script>
+    <!-- endinject -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- endinject -->
+  </head>
+  <body>
+    <header
+      style="display: flex; justify-content: center; align-items: center; margin: 0"
+    >
+      <div
+        class="jumbotron jumbotron-fluid"
+        style="  background-image: url('https://images.unsplash.com/photo-1527067829737-402993088e6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1053&q=80'); background-size: cover;display: flex; justify-content: space-between; padding: 2rem; width: 95vw; margin-top: 2rem;
+"
+      >
+        <h class="display-4" style="color: white; font-size: 5rem;">Purpello</h>
+      </div>
+    </header>
+    <main>
+      <ul class="grid whiteGo"></ul>
+      <div class="display">
+        <p>Black: <span class="blackDisplay">2</span></p>
+        <p>White: <span class="whiteDisplay">2</span></p>
+        <p class="winner"></p>
+      </div>
+    </main>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

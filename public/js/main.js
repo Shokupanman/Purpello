@@ -52,7 +52,7 @@ socket.on('join_room_response', function(payload) {
     nodeB.append('<h4>' + payload.username + '</h4>')
 
     nodeC.addClass('col-3 text-left')
-    let buttonC = makeInviteButton()
+    let buttonC = makeInviteButton(payload.socket_id)
     nodeC.append(buttonC)
 
     nodeA.hide()
@@ -63,7 +63,7 @@ socket.on('join_room_response', function(payload) {
     nodeB.slideDown(1000)
     nodeC.slideDown(1000)
   } else {
-    let buttonC = makeInviteButton()
+    let buttonC = makeInviteButton(payload.socket_id)
     $('.socket_' + payload.socket_id + 'button').replaceWith(buttonC)
     dom_elements.slideDown(1000)
   }
@@ -113,6 +113,43 @@ socket.on('player_disconnected', function(payload) {
   )
 })
 
+function invite(who) {
+  var payload = {}
+  payload.requested_user = who
+  console.log(
+    "*** client log message: 'invite' payload: " + JSON.stringify(payload)
+  )
+  socket.emit('invite', payload)
+}
+
+socket.on('invite_response', function(payload) {
+  if (payload.result == 'fail') {
+    alert(payload.message)
+    return
+  }
+  let newNode = makeInvitedButton()
+  $('.socket_' + payload.socket_id + ' button').replaceWith(newNode)
+})
+
+socket.on('invited', function(payload) {
+  if (payload.result == 'fail') {
+    alert(payload.message)
+    return
+  }
+  let newNode = makePlayButton()
+  $('.socket_' + payload.socket_id + ' button').replaceWith(newNode)
+})
+
+socket.on('send_message_response', function(payload) {
+  if (payload.result == 'fail') {
+    alert(payload.message)
+    return
+  }
+  $('#messages').append(
+    '<p><b>' + payload.username + 'says: </b> ' + payload.message + '</p>'
+  )
+})
+
 function send_message() {
   let payload = {}
   payload.room = chat_room
@@ -126,7 +163,28 @@ function send_message() {
 
 function makeInviteButton() {
   let newHTML =
-    "<button type = 'button' class = 'btn-outline-primary'></button>"
+    "<button type = 'button' class = 'btn-outline-primary'>Invite</button>"
+  let newNode = $(newHTML)
+  return newNode
+}
+function makeInvitedSButton(socket_id) {
+  let newHTML =
+    "<button type = 'button' class = 'btn-outline-primary'>Invited</button>"
+  let newNode = $(newHTML)
+  newNode.click(function() {
+    invite(socket_id)
+  })
+  return newNode
+}
+function makePlayButton() {
+  let newHTML =
+    "<button type = 'button' class = 'btn-outline-success'>Play</button>"
+  let newNode = $(newHTML)
+  return newNode
+}
+function makeEngageButton() {
+  let newHTML =
+    "<button type = 'button' class = 'btn-outline-danger'>Engage</button>"
   let newNode = $(newHTML)
   return newNode
 }

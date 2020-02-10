@@ -1,0 +1,140 @@
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after {
+  content: '';
+  content: none;
+}
+
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.disc-styles,
+.white-disc,
+ul li.white:before,
+ul.whiteGo li:not(.white):not(.black):hover:before,
+.black-disc,
+ul li.black:before,
+ul.blackGo li:not(.white):not(.black):hover:before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.white-disc,
+ul li.white:before,
+ul.whiteGo li:not(.white):not(.black):hover:before {
+  background-color: white;
+  border: 1px solid grey;
+}
+
+.black-disc,
+ul li.black:before,
+ul.blackGo li:not(.white):not(.black):hover:before {
+  background-color: #93f;
+  border: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans Condensed', sans-serif;
+  line-height: 1.4;
+}
+
+main {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 100vh;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.display {
+  padding: 20px;
+  text-align: center;
+}
+.display h1 {
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+.display .winner {
+  margin-top: 10px;
+}
+
+ul {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 400px;
+  border: 1px solid #2b672e;
+}
+ul li {
+  background-color: #a296be !important;
+  border: 1px solid black;
+  width: calc(100% / 8);
+  position: relative;
+}
+ul li:after {
+  content: '';
+  padding-bottom: 100%;
+  display: block;
+  background-color: #a296be !important;
+}
+ul li.pulse:before {
+  animation: pulse 1s;
+}
+ul.whiteGo li:not(.white):not(.black):hover {
+  cursor: pointer;
+}
+ul.blackGo li:not(.white):not(.black):hover {
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    width: 80%;
+    height: 80%;
+  }
+  50% {
+    width: 85%;
+    height: 85%;
+  }
+  100% {
+    width: 80%;
+    height: 80%;
+  }
+}
