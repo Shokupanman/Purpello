@@ -22,7 +22,7 @@
   "dependencies": {
     "bootstrap": "^4.4.1",
     "gulp": "^4.0.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "node-static": "^0.7.11",
     "socket.io": "^2.3.0",
     "soket.io": "0.0.1-security"
